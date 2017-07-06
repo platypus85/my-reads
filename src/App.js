@@ -12,12 +12,27 @@ class BooksApp extends React.Component {
   }
 
   componentDidMount() {
-    BooksAPI
+    this.getAllBooks();
+  }
+
+  getAllBooks = () => {
+      BooksAPI
       .getAll()
       .then((books) => {
         this.setState({books});
         console.log(books);
       })
+  }
+
+  moveBook = (book,shelf) => {
+    BooksAPI
+      .update(book,shelf)
+      .then((result) => {
+        console.log(result);
+        this.getAllBooks();
+      })
+    console.log(book);
+    console.log(shelf);
   }
 
   render() {
@@ -31,7 +46,11 @@ class BooksApp extends React.Component {
                 history.push('/');
               }}/>
           )}/>
-        <Route path="/" exact render={() => (<ListBooks books={this.state.books}/>)}/>
+        <Route path="/" exact render={() => (
+          <ListBooks 
+          books={this.state.books}
+          onMoveBook={this.moveBook}/>
+          )}/>
       </div>
     )
   }

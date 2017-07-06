@@ -5,10 +5,12 @@ import sortBy from 'sort-by';
 class SearchBook extends React.Component {
 
      static propTypes = {
-        books: PropTypes.array.isRequired
+        books: PropTypes.array.isRequired,
+        onMoveBook: PropTypes.func.isRequired
+
     }
     render() {
-        const {books} = this.props;
+        const {books, onMoveBook} = this.props;
         
         const SHELF_CURRENTLY_READING = 'currentlyReading';
         const SHELF_WANT_TO_READ = 'wantToRead';
@@ -40,9 +42,9 @@ class SearchBook extends React.Component {
                                                     backgroundImage: 'url("'+book.imageLinks.smallThumbnail+'")'
                                                 }}></div>
                                                 <div className="book-shelf-changer">
-                                                    <select>
+                                                    <select value={book.shelf} onChange={(event) => onMoveBook(book, event.target.value)}>
                                                         <option value="none" disabled>Move to...</option>
-                                                        <option value="currentlyReading" defaultChecked>Currently Reading</option>
+                                                        <option value="currentlyReading">Currently Reading</option>
                                                         <option value="wantToRead">Want to Read</option>
                                                         <option value="read">Read</option>
                                                         <option value="none">None</option>
@@ -81,7 +83,7 @@ class SearchBook extends React.Component {
                                                     backgroundImage: 'url("'+book.imageLinks.smallThumbnail+'")'
                                                 }}></div>
                                                 <div className="book-shelf-changer">
-                                                    <select>
+                                                    <select value={book.shelf} onChange={(event) => onMoveBook(book, event.target.value)}>
                                                         <option value="none" disabled>Move to...</option>
                                                         <option value="currentlyReading">Currently Reading</option>
                                                         <option value="wantToRead" defaultChecked>Want to Read</option>
@@ -122,7 +124,7 @@ class SearchBook extends React.Component {
                                                     backgroundImage: 'url("'+book.imageLinks.smallThumbnail+'")'
                                                 }}></div>
                                                 <div className="book-shelf-changer">
-                                                    <select>
+                                                    <select value={book.shelf} onChange={(event) => onMoveBook(book, event.target.value)}>
                                                         <option value="none" disabled>Move to...</option>
                                                         <option value="currentlyReading">Currently Reading</option>
                                                         <option value="wantToRead">Want to Read</option>
@@ -142,7 +144,6 @@ class SearchBook extends React.Component {
                                         </li>
                                     ))}
                                 </ol>
-                               
                             </div>
                         </div>
                     </div>

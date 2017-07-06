@@ -44,7 +44,8 @@ class BooksApp extends React.Component {
             <SearchBook
               returnToBooks={() => {
                 history.push('/');
-              }}/>
+              }}
+              onMoveBook={this.moveBook}/>
           )}/>
         <Route path="/" exact render={() => (
           <ListBooks 

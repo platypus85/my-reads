@@ -7,29 +7,33 @@ class SearchBook extends React.Component {
         query: '',
         booksFound: []
     }
-     updatequery = (query) => {
+    updatequery = (query) => {
         this.setState({
             query: query,
         });
+        if(query.length>0){
         BooksAPI
-        .search(query, 10)
-        .then((booksFound) => {
-            this.setState({
-                booksFound
-            });
-                console.log(booksFound);
-                console.log(query);
+        .search(query.trim(), 5)
+        .then((books) => {
+            
+            // this.setState({
+            //     booksFound: booksFound
+            // });
+                console.log("books >> "+ JSON.stringify(books));
+                console.log("query >> "+ query);
         })
+        }
+       
         
     }
     render() {
         const {query,booksFound} = this.state;
-        const {onMoveBook} = this.props;
+        const {onMoveBook,returnToBooks} = this.props;
 
         return (
             <div className="search-books">
                 <div className="search-books-bar">
-                    <a className="close-search" onClick={this.props.returnToBooks}>Close</a>
+                    <a className="close-search" onClick={returnToBooks}>Close</a>
                     <div className="search-books-input-wrapper">
                         <input
                         type="text"

@@ -20,7 +20,6 @@ class BooksApp extends React.Component {
       .getAll()
       .then((books) => {
         this.setState({books});
-        console.log(books);
       })
   }
 
@@ -28,11 +27,8 @@ class BooksApp extends React.Component {
     BooksAPI
       .update(book,shelf)
       .then((result) => {
-        console.log(result);
         this.getAllBooks();
       })
-    console.log(book);
-    console.log(shelf);
   }
 
   render() {

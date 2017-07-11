@@ -15,16 +15,14 @@ class SearchBook extends React.Component {
         BooksAPI
         .search(query.trim(), 5)
         .then((books) => {
-            
-            // this.setState({
-            //     booksFound: booksFound
-            // });
+
+            this.setState({
+                booksFound: books
+            });
                 console.log("books >> "+ JSON.stringify(books));
                 console.log("query >> "+ query);
         })
         }
-       
-        
     }
     render() {
         const {query,booksFound} = this.state;

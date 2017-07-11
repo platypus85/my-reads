@@ -8,20 +8,20 @@ class SearchBook extends React.Component {
         booksFound: []
     }
     updatequery = (query) => {
-        this.setState({
-            query: query,
-        });
-        if(query.length>0){
-        BooksAPI
-        .search(query.trim(), 5)
-        .then((books) => {
 
-            this.setState({
-                booksFound: books
-            });
+        const trimmedQuery = query.trim();
+        this.setState({ query });
+
+        if(query.length){
+        BooksAPI
+        .search(trimmedQuery, 5)
+        .then((books) => {
                 console.log("books >> "+ JSON.stringify(books));
                 console.log("query >> "+ query);
-        })
+                this.setState({
+                    booksFound: books
+                });
+            })
         }
     }
     render() {
@@ -43,7 +43,7 @@ class SearchBook extends React.Component {
                 <div className="search-books-results">
                     <ol className="books-grid">
                         
-                        {booksFound.length > 0 ? booksFound.map((book) => (
+                        {booksFound.length ? booksFound.map((book) => (
                             <li key={book.id}>
                                 
                                     <div className="book">
@@ -67,9 +67,9 @@ class SearchBook extends React.Component {
                                 </div>
                                 <div className="book-title">{book.title}</div>
                                 <div className="book-authors">
-                                    {book.authors.map((author, index) => (
+                                    {book.length ? book.authors.map((author, index) => (
                                         <span key={index}> {author} </span>
-                                    ))}
+                                    )): <p>N/A</p>}
                                 </div>
                             </div>
                                     

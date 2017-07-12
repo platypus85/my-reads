@@ -31,8 +31,7 @@ class SearchBook extends React.Component {
                                  <ol className="books-grid">
                                     {books.filter((book) => book.shelf === SHELF_CURRENTLY_READING).map((book) => (
                                         <li key={book.id}>
-                                           
-                                               <div className="book">
+                                         <div className="book">
                                             <div className="book-top">
                                                 <div
                                                     className="book-cover"

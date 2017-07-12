@@ -38,6 +38,7 @@ class BooksApp extends React.Component {
           path="/search"
           render={({history}) => (
             <SearchBook
+              shelfBooks={this.state.books}
               returnToBooks={() => {
                 history.push('/');
               }}

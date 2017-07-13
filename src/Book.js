@@ -2,7 +2,7 @@ import React from 'react';
 
 class Book extends React.Component {
     render() {
-        const {book,onMoveBook} = this.props;
+        const {book, onMoveBook} = this.props;
 
         let thumbnail = book.imageLinks
             ? book.imageLinks.thumbnail
@@ -19,7 +19,7 @@ class Book extends React.Component {
                             style={{
                             width: 128,
                             height: 193,
-                            backgroundImage: 'url("' +thumbnail + '")'
+                            backgroundImage: 'url("' + thumbnail + '")'
                         }}></div>
                         <div className="book-shelf-changer">
                             <select
@@ -35,12 +35,11 @@ class Book extends React.Component {
                     </div>
                     <div className="book-title">{book.title}</div>
                     <div className="book-authors">
-                        {authors
-                            .map((author, index) => (
-                                <span key={index}>
-                                    {author}
-                                </span>
-                            ))}
+                        {authors.map((author, index) => (
+                            <span key={index}>
+                                {author}
+                            </span>
+                        ))}
                     </div>
                 </div>
 

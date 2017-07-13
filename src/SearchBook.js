@@ -25,7 +25,7 @@ class SearchBook extends React.Component {
                             books = books.filter(o1 => !this.props.shelfBooks.some(o2 => o1.id === o2.id));
                             //console.log("BOOKS FOUND >>" + JSON.stringify(books));
                             this.setState({booksFound: books});
-                        }else{
+                        } else {
                             this.setState({booksFound: []});
                         }
                     })
@@ -55,12 +55,7 @@ class SearchBook extends React.Component {
                         {booksFound.length
                             ? booksFound.map(function (book) {
 
-                                return (
-                                     <Book
-                                       key={book.id}
-                                       onMoveBook={onMoveBook}
-                                       book={book}/>
-                                )
+                                return (<Book key={book.id} onMoveBook={onMoveBook} book={book}/>)
                             })
                             : <div>
                                 <p>No results found :(</p>

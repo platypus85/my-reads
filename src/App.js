@@ -16,16 +16,16 @@ class BooksApp extends React.Component {
   }
 
   getAllBooks = () => {
-      BooksAPI
+    BooksAPI
       .getAll()
       .then((books) => {
         this.setState({books});
       })
   }
 
-  moveBook = (book,shelf) => {
+  moveBook = (book, shelf) => {
     BooksAPI
-      .update(book,shelf)
+      .update(book, shelf)
       .then((result) => {
         this.getAllBooks();
       })
@@ -36,19 +36,16 @@ class BooksApp extends React.Component {
       <div className="app">
         <Route
           path="/search"
-          render={({history}) => (
-            <SearchBook
-              shelfBooks={this.state.books}
-              returnToBooks={() => {
-                history.push('/');
-              }}
-              onMoveBook={this.moveBook}/>
-          )}/>
-        <Route path="/" exact render={() => (
-          <ListBooks 
-          books={this.state.books}
-          onMoveBook={this.moveBook}/>
-          )}/>
+          render={({history}) => (<SearchBook
+          shelfBooks={this.state.books}
+          returnToBooks={() => {
+          history.push('/');
+        }}
+          onMoveBook={this.moveBook}/>)}/>
+        <Route
+          path="/"
+          exact
+          render={() => (<ListBooks books={this.state.books} onMoveBook={this.moveBook}/>)}/>
       </div>
     )
   }

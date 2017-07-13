@@ -6,13 +6,13 @@ import Book from './Book';
 
 class SearchBook extends React.Component {
 
-     static propTypes = {
+    static propTypes = {
         books: PropTypes.array.isRequired,
         onMoveBook: PropTypes.func.isRequired
     }
     render() {
         const {books, onMoveBook} = this.props;
-        
+
         const SHELF_CURRENTLY_READING = 'currentlyReading';
         const SHELF_WANT_TO_READ = 'wantToRead';
         const SHELF_READ = 'read';
@@ -21,12 +21,10 @@ class SearchBook extends React.Component {
             {
                 title: 'Currently Reading',
                 code: SHELF_CURRENTLY_READING
-            },
-            {
+            }, {
                 title: 'Want to Read',
                 code: SHELF_WANT_TO_READ
-            },
-            {
+            }, {
                 title: 'Read',
                 code: SHELF_READ
             }
@@ -46,23 +44,17 @@ class SearchBook extends React.Component {
                                 <h2 className="bookshelf-title">{shelf.title}</h2>
                                 <div className="bookshelf-books">
                                     <ol className="books-grid">
-                                        {books.filter((book) => book.shelf === shelf.code).map((book) => (
-                                        <Book
-                                            key={book.id}
-                                            onMoveBook={onMoveBook}
-                                            book={book}/>
-                                        ))}
+                                        {books.filter((book) => book.shelf === shelf.code).map((book) => (<Book key={book.id} onMoveBook={onMoveBook} book={book}/>))}
                                     </ol>
-                                
+
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
                 <div className="open-search">
-                    <Link
-                    to="/search">
-                    Add a book
+                    <Link to="/search">
+                        Add a book
                     </Link>
                 </div>
             </div>

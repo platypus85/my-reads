@@ -35,7 +35,7 @@ class Book extends React.Component {
                     </div>
                     <div className="book-title">{book.title}</div>
                     <div className="book-authors">
-                        {authors.map((author, index) => (
+                        {Array.isArray(authors) ? authors.join(' & '): authors.map((author, index) => (
                             <span key={index}>
                                 {author}
                             </span>

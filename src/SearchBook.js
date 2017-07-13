@@ -22,8 +22,8 @@ class SearchBook extends React.Component {
                     .search(trimmedQuery, 5)
                     .then((books) => {
                         if (books.length) {
-                            books = books.filter(o1 => !this.props.shelfBooks.some(o2 => o1.id === o2.id));
-                            //console.log("BOOKS FOUND >>" + JSON.stringify(books));
+                            //To hide books already in my shelves use the filter below.
+                            //books = books.filter(o1 => !this.props.shelfBooks.some(o2 => o1.id === o2.id));
                             this.setState({booksFound: books});
                         } else {
                             this.setState({booksFound: []});

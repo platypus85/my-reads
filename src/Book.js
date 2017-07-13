@@ -2,7 +2,14 @@ import React from 'react';
 
 class Book extends React.Component {
     render() {
-        const {book, shelf} = this.props;
+        const {book,onMoveBook} = this.props;
+
+        let thumbnail = book.imageLinks
+            ? book.imageLinks.thumbnail
+            : 'https://books.google.com/googlebooks/images/no_cover_thumb.gif';
+        let authors = book.authors
+            ? book.authors
+            : [];
         return (
             <li key={book.id}>
                 <div className="book">
@@ -12,7 +19,7 @@ class Book extends React.Component {
                             style={{
                             width: 128,
                             height: 193,
-                            backgroundImage: 'url("' + book.imageLinks.smallThumbnail + '")'
+                            backgroundImage: 'url("' +thumbnail + '")'
                         }}></div>
                         <div className="book-shelf-changer">
                             <select
@@ -28,8 +35,7 @@ class Book extends React.Component {
                     </div>
                     <div className="book-title">{book.title}</div>
                     <div className="book-authors">
-                        {book
-                            .authors
+                        {authors
                             .map((author, index) => (
                                 <span key={index}>
                                     {author}

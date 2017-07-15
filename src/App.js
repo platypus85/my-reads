@@ -32,13 +32,16 @@ class BooksApp extends React.Component {
   }
 
   render() {
+
+    const {books} = this.state;
+
     return (
       <div className="app">
         <Route
           path="/search"
           render={({history}) => (
             <SearchBook
-              shelfBooks={this.state.books}
+              shelfBooks={books}
               returnToBooks={() => {
                 history.push('/');
               }}
@@ -47,7 +50,7 @@ class BooksApp extends React.Component {
         <Route
           path="/"
           exact
-          render={() => (<ListBooks books={this.state.books} onMoveBook={this.moveBook}/>)}/>
+          render={() => (<ListBooks books={books} onMoveBook={this.moveBook}/>)}/>
       </div>
     )
   }

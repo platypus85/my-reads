@@ -44,7 +44,9 @@ class SearchBook extends React.Component {
                                 <h2 className="bookshelf-title">{shelf.title}</h2>
                                 <div className="bookshelf-books">
                                     <ol className="books-grid">
-                                        {books.filter((book) => book.shelf === shelf.code).map((book) => (<Book key={book.id} onMoveBook={onMoveBook} book={book}/>))}
+                                        {books.filter((book) => book.shelf === shelf.code).map((book) => (
+                                            <Book key={book.id} onMoveBook={onMoveBook} book={book}/>
+                                        ))}
                                     </ol>
 
                                 </div>

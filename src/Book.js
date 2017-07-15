@@ -2,7 +2,7 @@ import React from 'react';
 
 class Book extends React.Component {
     render() {
-        const {book, onMoveBook} = this.props;
+        const {book, onMoveBook, shelfBooks} = this.props;
 
         let thumbnail = book.imageLinks
             ? book.imageLinks.thumbnail
@@ -10,6 +10,16 @@ class Book extends React.Component {
         let authors = book.authors
             ? book.authors
             : [];
+
+      if(shelfBooks){
+          shelfBooks.forEach((shelfBook, index) => {
+            if (shelfBook.id === book.id) {
+            book.shelf = shelfBook.shelf;
+            }
+        });
+      }
+
+
         return (
             <li key={book.id}>
                 <div className="book">

@@ -35,7 +35,7 @@ class SearchBook extends React.Component {
     }
     render() {
         const {query, booksFound} = this.state;
-        const {onMoveBook, returnToBooks} = this.props;
+        const {shelfBooks, onMoveBook, returnToBooks} = this.props;
 
         return (
             <div className="search-books">
@@ -55,7 +55,13 @@ class SearchBook extends React.Component {
                         {booksFound.length
                             ? booksFound.map(function (book) {
 
-                                return (<Book key={book.id} onMoveBook={onMoveBook} book={book}/>)
+                                return (
+                                    <Book 
+                                        shelfBooks={shelfBooks} 
+                                        key={book.id} 
+                                        onMoveBook={onMoveBook} 
+                                        book={book}/>
+                                    )
                             })
                             : <div>
                                 <p>No results found :(</p>

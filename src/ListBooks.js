@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import sortBy from 'sort-by';
 import {Link} from 'react-router-dom';
-import Book from './Book';
+import Bookshelf from './Bookshelf';
 
 class SearchBook extends React.Component {
 
@@ -40,17 +40,7 @@ class SearchBook extends React.Component {
                 <div className="list-books-content">
                     <div>
                         {shelves.map((shelf) => (
-                            <div key={shelf.code} className="bookshelf">
-                                <h2 className="bookshelf-title">{shelf.title}</h2>
-                                <div className="bookshelf-books">
-                                    <ol className="books-grid">
-                                        {books.filter((book) => book.shelf === shelf.code).map((book) => (
-                                            <Book key={book.id} onMoveBook={onMoveBook} book={book}/>
-                                        ))}
-                                    </ol>
-
-                                </div>
-                            </div>
+                           <Bookshelf key={shelf.code} books={books} onMoveBook={onMoveBook} shelf={shelf}/>
                         ))}
                     </div>
                 </div>

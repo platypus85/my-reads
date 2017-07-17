@@ -57,7 +57,7 @@ class SearchBook extends React.Component {
 
                                 return (<Book
                                     shelfBooks={shelfBooks}
-                                    key={index}
+                                    key={book.id+index}
                                     onMoveBook={onMoveBook}
                                     book={book}/>)
                             })

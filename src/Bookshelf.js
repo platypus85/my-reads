@@ -14,7 +14,7 @@ class Bookshelf extends React.Component {
                         {books
                         .filter((book) => book.shelf === shelf.code)
                         .map((book, index) => (
-                            <Book key={index} onMoveBook={onMoveBook} book={book}/>
+                            <Book key={book.id+index} onMoveBook={onMoveBook} book={book}/>
                         ))}
                     </ol>
 

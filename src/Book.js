@@ -4,6 +4,7 @@ class Book extends React.Component {
     render() {
         const {book, onMoveBook, shelfBooks} = this.props;
 
+        //If thumbnail not present, use a default book cover.
         let thumbnail = book.imageLinks
             ? book.imageLinks.thumbnail
             : 'https://books.google.com/googlebooks/images/no_cover_thumb.gif';

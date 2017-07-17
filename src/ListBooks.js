@@ -17,6 +17,7 @@ class SearchBook extends React.Component {
         const SHELF_WANT_TO_READ = 'wantToRead';
         const SHELF_READ = 'read';
 
+        //Map defined to create the Bookshelves 
         const shelves = [
             {
                 title: 'Currently Reading',

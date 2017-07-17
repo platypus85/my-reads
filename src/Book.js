@@ -7,18 +7,18 @@ class Book extends React.Component {
         let thumbnail = book.imageLinks
             ? book.imageLinks.thumbnail
             : 'https://books.google.com/googlebooks/images/no_cover_thumb.gif';
+
         let authors = book.authors
             ? book.authors
             : [];
 
-      if(shelfBooks){
-          shelfBooks.forEach((shelfBook, index) => {
-            if (shelfBook.id === book.id) {
-            book.shelf = shelfBook.shelf;
-            }
-        });
-      }
-
+        if (shelfBooks) {
+            shelfBooks.forEach((shelfBook, index) => {
+                if (shelfBook.id === book.id) {
+                    book.shelf = shelfBook.shelf;
+                }
+            });
+        }
 
         return (
             <li key={book.id}>

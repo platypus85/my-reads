@@ -39,9 +39,11 @@ class SearchBook extends React.Component {
                 </div>
                 <div className="list-books-content">
                     <div>
-                        {shelves.map((shelf) => (
-                           <Bookshelf key={shelf.code} books={books} onMoveBook={onMoveBook} shelf={shelf}/>
-                        ))}
+                        {shelves.map((shelf) => (<Bookshelf
+                            key={shelf.code}
+                            books={books}
+                            onMoveBook={onMoveBook}
+                            shelf={shelf}/>))}
                     </div>
                 </div>
                 <div className="open-search">

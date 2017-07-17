@@ -55,13 +55,11 @@ class SearchBook extends React.Component {
                         {booksFound.length
                             ? booksFound.map(function (book) {
 
-                                return (
-                                    <Book 
-                                        shelfBooks={shelfBooks} 
-                                        key={book.id} 
-                                        onMoveBook={onMoveBook} 
-                                        book={book}/>
-                                    )
+                                return (<Book
+                                    shelfBooks={shelfBooks}
+                                    key={book.id}
+                                    onMoveBook={onMoveBook}
+                                    book={book}/>)
                             })
                             : <div>
                                 <p>No results found :(</p>

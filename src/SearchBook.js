@@ -53,11 +53,11 @@ class SearchBook extends React.Component {
                     <ol className="books-grid">
 
                         {booksFound.length
-                            ? booksFound.map(function (book) {
+                            ? booksFound.map(function (book, index) {
 
                                 return (<Book
                                     shelfBooks={shelfBooks}
-                                    key={book.id}
+                                    key={index}
                                     onMoveBook={onMoveBook}
                                     book={book}/>)
                             })

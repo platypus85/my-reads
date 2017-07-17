@@ -13,8 +13,8 @@ class Bookshelf extends React.Component {
                     <ol className="books-grid">
                         {books
                         .filter((book) => book.shelf === shelf.code)
-                        .map((book) => (
-                            <Book key={book.id} onMoveBook={onMoveBook} book={book}/>
+                        .map((book, index) => (
+                            <Book key={index} onMoveBook={onMoveBook} book={book}/>
                         ))}
                     </ol>
 
